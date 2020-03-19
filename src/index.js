@@ -1,3 +1,3 @@
-import UserCard from './components/UserCard.js'
+import { CardList } from './components/CardList.js'
 
-window.customElements.define('user-card', UserCard)
+window.customElements.define('card-list', CardList)

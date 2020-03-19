@@ -39,7 +39,7 @@ template.innerHTML = `
   </div>
 `
 
-class UserCard extends HTMLElement {
+export class UserCard extends HTMLElement {
   constructor() {
     super()
     this.showInfo = true
@@ -47,7 +47,6 @@ class UserCard extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true))
     this.shadowRoot.querySelector('h3').innerText = this.getAttribute('name')
     this.shadowRoot.querySelector('img').src = this.getAttribute('avatar')
-    console.log(this.getAttribute('avatar'))
   }
 
   toggleInfo() {
@@ -65,16 +64,12 @@ class UserCard extends HTMLElement {
   }
 
   connectedCallback() {
-    console.log('connectedCallback')
     this.shadowRoot.querySelector('#toggle-info').addEventListener('click', () => this.toggleInfo())
   }
 
   disconnectedCallback() {
-    console.log('disconnectedCallback')
     this.shadowRoot.querySelector('#toggle-info').removeEventListener()
   }
 
   attributeChangedCallback(attributeName, opdValue, newValue) {}
 }
-
-export default UserCard
